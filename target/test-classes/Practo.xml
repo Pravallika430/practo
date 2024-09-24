@@ -1,0 +1,14 @@
+<suite name="practo suite1">
+    <test name="practo2">
+        <parameter name="x" value="edge"/>
+        <classes>
+            <class name="TestFiles.PractoTestFile"/>    
+        </classes>
+    </test>
+    <test name="practo3">
+        <parameter name="x" value="chrome"/>
+        <classes>
+            <class name="TestFiles.PractoTestFile"/>    
+        </classes>
+    </test>
+</suite>
