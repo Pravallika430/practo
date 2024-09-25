@@ -33,7 +33,6 @@ public class HomePage extends BaseClass {
         return city_name;
     }
     
-
     public void select_speciality() throws Exception {
         WebElement specialization1 = driver.findElement(speciality);
         specialization1.click();
@@ -54,7 +53,6 @@ public class HomePage extends BaseClass {
     	driver.findElement(radio_btn).click();
     	Thread.sleep(3000);
     	List<WebElement> price_list=driver.findElements(fees);
-    	return price_list;
-    	
+    	return price_list;	
     }
 }
