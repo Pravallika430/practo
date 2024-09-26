@@ -20,7 +20,7 @@ public class HomePage extends BaseClass {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-    public String selecting_city() throws Exception {
+    public String selectingCity() throws Exception {
         WebElement area = driver.findElement(city);
         area.click();
         Thread.sleep(2000);
@@ -33,7 +33,7 @@ public class HomePage extends BaseClass {
         return city_name;
     }
     
-    public void select_speciality() throws Exception {
+    public void selectSpeciality() throws Exception {
         WebElement specialization1 = driver.findElement(speciality);
         specialization1.click();
         Thread.sleep(3000);
@@ -44,10 +44,11 @@ public class HomePage extends BaseClass {
         specialization1.sendKeys(Keys.ENTER);
         Thread.sleep(3000);
     }
+    
     public List<WebElement> filtering() throws Throwable
     {
-    	selecting_city();
-    	select_speciality();
+    	selectingCity();
+    	selectSpeciality();
     	driver.findElement(filter).click();
     	Thread.sleep(3000);
     	driver.findElement(radio_btn).click();

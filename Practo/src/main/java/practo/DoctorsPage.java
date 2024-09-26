@@ -14,13 +14,13 @@ public class DoctorsPage {
     public DoctorsPage(WebDriver driver) {
         this.driver = driver;
     }
-    public int[] checking_displayed_doctors() {
+    public int[] checkingDisplayedDoctors() {
         List<WebElement> total_doctors = driver.findElements(actual_doctors);
         List<WebElement> dentist_list = driver.findElements(dentists);
         return new int[] { total_doctors.size(), dentist_list.size() };
     }
     
-    public String select_doctor() throws Exception
+    public String selectDoctor() throws Exception
     {
         List<WebElement> doctors_list = driver.findElements(doctors);
         Random r = new Random();
@@ -32,7 +32,7 @@ public class DoctorsPage {
         return selected_doctor_name;
     }
     
-    public String select_slot() throws Exception
+    public String selectSlot() throws Exception
 	{
 		List<WebElement> day_list=driver.findElements(day);
 		Thread.sleep(3000);
@@ -53,7 +53,7 @@ public class DoctorsPage {
 		slot_time = slot_time.replaceFirst("^0", "");
 		return slot_time;
 	}    
-    public static String get_selected_date()
+    public static String getSelectedDate()
     {
     	By selected_date=By.xpath("//div[@class=\"pure-u-1-3 c-day-label \"]/following::div[not(contains(., 'Today')) and not(contains(., 'Tomorrow'))][1]");
     	String selected_date_value=driver.findElement(selected_date).getText();

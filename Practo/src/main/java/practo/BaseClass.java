@@ -1,5 +1,4 @@
 package practo;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -55,6 +54,7 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
+    
     public static void Open_URL() {
         driver.get(prop.getProperty("url"));
     }

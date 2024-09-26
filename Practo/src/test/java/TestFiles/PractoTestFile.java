@@ -15,7 +15,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
-import practo.AppointmentPage;
 import practo.BaseClass;
 import practo.DoctorsPage;
 import practo.HomePage;
@@ -34,9 +33,9 @@ public class PractoTestFile extends BaseClass {
    @Test(priority = 1)
     public void verify_category_list_of_doctors() throws Exception {
         test = report.createTest("Test 1 - Validate Speciality of All Doctors");
-        String selected_city = homepage.selecting_city();
-        homepage.select_speciality();
-        int[] doctors_list = doctorspage.checking_displayed_doctors();
+        String selected_city = homepage.selectingCity();
+        homepage.selectSpeciality();
+        int[] doctors_list = doctorspage.checkingDisplayedDoctors();
         System.out.println(doctors_list[0]);
         System.out.println(doctors_list[1]);
         if (doctors_list[0] == doctors_list[1]) {
@@ -54,10 +53,10 @@ public class PractoTestFile extends BaseClass {
     public void verify_doctor_details_timeslot_date() throws Exception {
         test = report.createTest("Test 2 - Book Slot For Visiting Clinic");
     	BaseClass.Open_URL();
-    	homepage.selecting_city();
-    	homepage.select_speciality();
-    	String selected_doctor_name = doctorspage.select_doctor();
-    	String selected_slot = doctorspage.select_slot();
+    	homepage.selectingCity();
+    	homepage.selectSpeciality();
+    	String selected_doctor_name = doctorspage.selectDoctor();
+    	String selected_slot = doctorspage.selectSlot();
     	String actual_slot=driver.findElement(slot).getText();
     	System.out.println(actual_slot);
     	String actual_doctor_name=driver.findElement(doctor_name).getText();
@@ -99,7 +98,7 @@ public class PractoTestFile extends BaseClass {
     	}
     	else
     	{
-    		String selected_date=doctorspage.get_selected_date();
+    		String selected_date=doctorspage.getSelectedDate();
             DateTimeFormatter formate = DateTimeFormatter.ofPattern("EEE, dd MMM", Locale.ENGLISH);
             LocalDate date = LocalDate.parse(selected_date + " 2024", formate);
             DateTimeFormatter actual_date1 = DateTimeFormatter.ofPattern("MMM dd, yyyy", Locale.ENGLISH);
@@ -111,6 +110,7 @@ public class PractoTestFile extends BaseClass {
     	}  
     }
     
+    
     @Test(priority = 3)
     public void verify_filtering() throws Throwable {
         test = report.createTest("Test 3 - Checking the filtration functionality");
@@ -121,8 +121,7 @@ public class PractoTestFile extends BaseClass {
             Assert.assertTrue(price<500,"Filter functionality is applied not correctly");  
         }
         test.log(Status.PASS,"Filter functionality is applied correctly");        
-    }
-    
+    }    
     @AfterMethod
     public void Closing_Browser() {
         close();
