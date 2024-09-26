@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [practo suite1]">
+  <test thread-count="5" name="practo3(failed)">
+    <parameter name="x" value="chrome"/>
+    <classes>
+      <class name="TestFiles.PractoTestFile">
+        <methods>
+          <include name="saveReport"/>
+          <include name="Browser_Setup"/>
+          <include name="report"/>
+          <include name="Closing_Browser"/>
+          <include name="verify_doctor_details_timeslot_date"/>
+          <include name="Initializing_Browser"/>
+        </methods>
+      </class> <!-- TestFiles.PractoTestFile -->
+    </classes>
+  </test> <!-- practo3(failed) -->
+</suite> <!-- Failed suite [practo suite1] -->
